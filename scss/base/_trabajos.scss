@@ -1,0 +1,214 @@
+@import "../utilidades/listas";
+@import "../utilidades/mixin";
+@import "../utilidades/variables";
+
+.contenedor-trabajos{
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header header"
+        "main main"
+        "section section"
+        "footer footer";
+}
+
+header{
+    grid-area: header;
+        .custom-navbar{
+            background-color: nth($paleta, 3);
+                .container-fluid{
+                    padding: 20px;
+                    .navbar-brand{
+                        img{
+                            height: 50px;
+                        }
+                    }
+                }
+                .nav-link{
+                    color: nth($paleta, 1);
+
+                    &:hover{
+                        color: $color-duranta-yellow;
+                    }
+                }
+        }
+    }
+    main{
+        grid-area: main;
+            .banner-trabajos{
+                display: flex;
+                    .texto-banner-trabajos{
+                        padding: 40px;
+                        background-image: linear-gradient($color-nordic, $color-light-violet);
+                            h1{
+                            font-family: nyght;
+                            color: nth($paleta, 3);
+                            font-size: 100px;
+                            padding: 60px;
+                            }
+                    }
+                    .descripcion-banner-trabajos{
+                            img{
+                            width: 50px;
+                            margin-left: 40px;
+                            }
+                            p{
+                                font-family: montserrat;
+                                color: nth($paleta, 3);
+                                margin-left: 40px;
+                                margin-top: 10px;
+                                text-align: justify;
+                                padding-right: 200px;
+                            }
+                    }
+                    .img-banner-trabajos{
+                        img{
+                            background-color: nth($paleta,5);
+                            width: 100%;
+                        }
+                    }
+            }
+            .servicios-descripcion{
+                background-color: nth($paleta, 3);
+                display: flex;
+                color: nth($paleta, 1);
+                padding: 80px;
+                gap: 20px;
+                    .branding-trabajos{
+                        @include descripcion-trabajos;
+                    }
+                    .ilustracion-trabajos{
+                        @include descripcion-trabajos;
+                    }
+                    .redes-trabajos{
+                        @include descripcion-trabajos;
+                    }
+                    .editorial-trabajos{
+                        @include descripcion-trabajos;
+                    }
+            }
+    }
+
+    section{
+        grid-area: section;
+            .selva{
+                display: flex;
+                    .selva-descripcion{
+                        @include tarjetas-trabajos-portfolio
+                    }
+                    .carousel, .slide{
+                        @include carrusel-portfolio
+                    }
+            }
+            .signos{
+                display: flex;
+                .signos-descripcion{
+                    @include tarjetas-trabajos-portfolio
+                }
+                .carousel, .slide{
+                    @include carrusel-portfolio
+                }
+            }
+            .humedales{
+                display: flex;
+                .humedales-descripcion{
+                    @include tarjetas-trabajos-portfolio
+                }
+                .carousel, .slide{
+                    @include carrusel-portfolio
+                }
+            }
+            .abra{
+                display: flex;
+                .abra-descripcion{
+                    @include tarjetas-trabajos-portfolio
+                }
+                .carousel, .slide{
+                    @include carrusel-portfolio
+                }
+            }
+    }
+
+    footer{
+        grid-area: footer;
+        background-color: nth($paleta, 3);
+    
+        p{
+            color: nth($paleta, 6);
+            font-family: roboto mono;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .redes{
+            display: flex;
+            justify-content: center;
+                img{
+                    height: 50px;
+                }
+        }
+    }
+
+    /* mobile */
+    @media (max-width: 768px){
+        .contenedor-trabajos{
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+        }
+
+        main{
+            .banner-trabajos{
+                flex-direction: column;
+                text-align: center;
+                    .texto-banner-trabajos{
+                        h1{
+                            font-size: 60px;
+                            text-align: center;
+                        }
+                        .descripcion-banner-trabajos{
+                            img{
+                                display: none;
+                            }
+                            p{
+                                text-align:justify;
+                                font-size: 20px;
+                            }
+                        }
+                    }
+            }
+            .img-banner-trabajos{
+                img{
+                width: 80%;
+                }
+            }
+
+            .servicios-descripcion{
+                flex-direction: column;
+                div{
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        section{
+
+        
+        .carousel{
+            width: 100%;
+        }
+        .slide{
+            justify-items: center;
+        }
+        .selva-descripcion, .signos-descripcion, .humedales-descripcion, .abra-descripcion{
+            text-align: center;
+        }
+        .selva, .signos, .humedales, .abra{
+            display: block;
+        }
+        footer{
+            .redes{
+                display: row;
+            }
+        }
+        }
+    }

@@ -1,0 +1,206 @@
+
+@mixin card-home{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+@mixin card-body{
+    font-family: montserrat;
+    padding-top: 20px;
+        h5{
+            font-weight: bold;
+            color: #17194C;
+        }
+        p{
+            text-align: justify;
+            font-family: montserrat;
+            color: #17194C;
+        }
+}
+
+@mixin hashtags{
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    font-family: roboto mono;
+    letter-spacing: 5px;
+        h6{
+            font-size: xx-small;
+            background-color: #D5B4FB;
+            color: #17194C;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        .selector{
+            background-color: #17194C;
+            color: #D8E63B;
+        }
+}
+
+@mixin descripcion-trabajos{
+    img{
+        width: 50px;
+        justify-content: center;
+        transition: 0.3s ease;
+        &:hover{
+            content: url(../img/estrella-gordita-violeta-11.png);
+        }
+    }
+    h5{
+        font-family: roboto mono;
+        letter-spacing: 5px;
+        font-size: small;
+    }
+    p{
+        font-family: montserrat;
+        font-size: small;
+        text-align: justify;
+    }
+}
+
+@mixin tarjetas-trabajos-portfolio{
+    padding: 60px;
+    margin-top: 60px;
+        h1{
+            font-family: nyght;
+            color: #17194C;
+            font-size: 70px;
+        }
+        h5{
+            font-family: roboto mono;
+            color: #273186;
+        }
+        p{
+            font-family: montserrat;
+            font-size: 1rem;
+            color: #17194C;
+        }
+    .hashtags-trabajos-portfolio{
+        display: flex;
+        gap: 20px;
+        h6{
+            font-size: xx-small;
+            background-color: #D5B4FB;
+            color: #17194C;
+            border-radius: 20px;
+            padding: 10px; 
+        }
+        .destacado{
+            background-color: #17194C;
+            color: #D8E63B;
+        }
+
+    }
+}
+
+@mixin carrusel-portfolio{
+    width: 50%;
+    margin-right: 60px;
+}
+
+@mixin tarjeta-mision-superposicion{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+            position: relative;
+}
+
+@mixin tarjeta-rectangulo-celeste{
+            width: 400px;
+            height: 400px;
+            padding: 60px;
+            border-radius: 40px;
+            background-color: nth($paleta, 2);
+            position: relative;
+            margin-left: 20px;
+            box-shadow: 1px 1px 20px #B4C1CC;
+              h3{
+                font-family: nyght;
+                color: nth($paleta, 3);
+              }
+              h5{
+                font-family: roboto mono;
+                font-size: small;
+                color: nth($paleta, 3);
+              }
+              p{
+                font-family: montserrat;
+                color: nth($paleta, 3);
+              }
+}
+
+@mixin estrellita-violeta-fondo{
+    img{
+        height: 30%;
+        position: absolute;
+        left: 350px;
+        top: -55px;
+      }
+}
+
+@mixin cards-servicios-colores{
+    width: 25%;
+    background-color: #D5B4FB;
+    padding: 60px;
+        h4{
+            font-family: roboto mono;
+            font-size: medium;
+            color: #17194C;
+        }
+        h5{
+            font-family: montserrat;
+            color: #17194C;
+        }
+        .cta-servicios{
+            width: 200px;
+            border-radius: 40px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 1px 1px 10px $color-tetsu-blue;
+            margin-left: 30px;
+            background-color: #17194C;
+                .btn{
+                    font-family: roboto mono;
+                    color: $color-nordic;
+                }
+        }
+        .cta-servicios:hover{
+            background-color: #C6FA3D;
+                .btn{
+                    color: $color-tetsu-blue;
+                }
+        }
+}
+
+@mixin crads-servicios-colores-2{
+    width: 25%;
+    background-color: #17194C;
+    padding: 60px;
+        h4{
+            font-family: roboto mono;
+            font-size: medium;
+            color: nth($paleta, 1);
+        }
+        h5{
+            font-family: montserrat;
+            color: nth($paleta, 1);
+        }
+        .cta-servicios{
+            width: 200px;
+            border-radius: 40px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 1px 1px 10px $color-nordic;
+            margin-left: 30px;
+            background-color: #D5B4FB;
+                .btn{
+                    font-family: roboto mono;
+                    color: $color-tetsu-blue;
+                }
+        }
+        .cta-servicios:hover{
+            background-color: #C6FA3D;
+        }
+}

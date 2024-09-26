@@ -1,0 +1,18 @@
+//fuente externa
+@font-face {
+    font-family: nyght;
+    src: url(../NYGHT_SERIF_0_5/Web/WOFF/NyghtSerif-BoldItalic.woff);
+}
+
+//reset
+@import "base/reset";
+
+//import
+@import "base/home";
+@import "base/trabajos";
+@import "base/mision";
+@import "base/servicios";
+@import "base/contacto";
+
+
+

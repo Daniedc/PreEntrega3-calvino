@@ -1,0 +1,193 @@
+@import "../utilidades/listas";
+@import "../utilidades/mixin";
+@import "../utilidades/variables";
+
+.contenedor-contacto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "header header"
+        "main section"
+        "footer footer";
+}
+
+header{
+    grid-area: header;
+        .custom-navbar{
+            background-color: nth($paleta, 3);
+                .container-fluid{
+                    padding: 20px;
+                    .navbar-brand{
+                        img{
+                            height: 50px;
+                        }
+                    }
+                }
+                .nav-link{
+                    color: nth($paleta, 1);
+
+                    &:hover{
+                        color: $color-duranta-yellow;
+                    }
+                }
+        }
+    }
+
+.main-form{
+    grid-area: main;
+    background-image: linear-gradient($color-duranta-yellow, $color-crema);
+        .form-informacion{
+            display: flex;
+                .form-datos{
+                    margin: 40px;
+                    img{
+                        width: 20%;
+                        border-radius: 100%;
+                        filter: grayscale(100%);
+                        padding-bottom: 20px;
+                    }
+                    h6{
+                        color: $color-tetsu-blue;
+                        font-family: montserrat;
+                        font-size: small;
+                    }
+                }
+                .form-botones{
+                    display: flex;
+                    gap: 20px;
+                    padding: 40px;
+                        h6{
+                            background-color: rgb(28, 28, 28) ;
+                            color: $color-duranta-yellow;
+                            padding: 10px;
+                            font-family: roboto mono;
+                            font-size: small;
+                            border-radius: 30px;
+                            height:fit-content;
+                        }
+                }
+        }
+        .form-titulo{
+            font-family: roboto mono;
+            padding: 40px;
+            margin-top: 300px;
+                h1{
+                    color: $color-tetsu-blue;
+                }
+                .plan{
+                    color:rgb(123, 123, 123) ;
+                }
+        }
+}
+
+.section-form{
+    grid-area: section;
+    background-color: rgb(28, 28, 28);
+    padding: 60px;
+        .form-titular{
+            h2{
+                color: $color-duranta-yellow;
+                font-family: montserrat;
+                font-size: 30px;
+            }
+            .help{
+                color: rgb(123, 123, 123);
+            }
+        }
+        .form-pastillas{
+            h5{
+                font-family: roboto mono;
+                color: $color-duranta-yellow;
+                font-size: small;
+                letter-spacing: 10px;
+            }
+            .pastillas-servicios{
+                color: rgb(123, 123, 123);
+                font-family: roboto mono;
+                display: flex;
+                gap: 20px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                h6{
+                    border: 1px solid $color-duranta-yellow;
+                    padding: 5px;
+                    border-radius: 30px;
+                    text-align: center;
+                    font-size: smaller;
+                        a{
+                            color:rgb(123, 123, 123) ;
+                        }
+                }
+                h6:hover{
+                    background-color: $color-duranta-yellow;
+                    a{
+                       color: rgb(28, 28, 28); 
+                    }
+                    
+                }
+            }
+        }
+        .form-completar{
+            label{
+                font-family: montserrat;
+                color: $color-duranta-yellow;
+                padding-top: 20px;
+            }
+            input{
+                border: none;
+                border-bottom: 2px solid $color-duranta-yellow;
+                background: transparent;
+                outline: none;
+                padding: 5px;
+                font-size: 16px;
+            }
+            .enviar{
+                background-color: $color-duranta-yellow;
+                border-radius: 30px;
+                width: 100px;
+                padding: 10px;
+                font-family: roboto mono;
+            }
+        }
+
+}
+
+footer{
+    grid-area: footer;
+    background-color: nth($paleta, 3);
+    
+        p{
+        color: nth($paleta, 6);
+        font-family: roboto mono;
+        text-align: center;
+        padding-top: 20px;
+        }
+        .redes{
+        display: flex;
+        justify-content: center;
+            img{
+                height: 50px;
+            }
+        }
+}
+
+@media (max-width:768px){
+    .contenedor-contacto{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: 
+            "header"
+            "main"
+            "section"
+            "footer";
+            .main-form{
+                grid-area: main;
+                flex-direction: column;
+            }
+            .section-form{
+                grid-area: section;
+                flex-direction: column;
+            }
+    }
+}

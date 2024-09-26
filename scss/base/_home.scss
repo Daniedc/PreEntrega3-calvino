@@ -1,0 +1,259 @@
+@import "../utilidades/listas";
+@import "../utilidades/mixin";
+
+body{
+    .contenedor-home{
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: 
+            "header header"
+            "main main"
+            "section section"
+            "footer footer";
+    }
+}
+
+header{
+    grid-area: header;
+        .custom-navbar{
+            background-color: nth($paleta, 3);
+                .container-fluid{
+                    padding: 20px;
+                    .navbar-brand{
+                        img{
+                            height: 50px;
+                        }
+                    }
+                }
+                .nav-link{
+                    color: nth($paleta, 1);
+
+                    &:hover{
+                        color: $color-duranta-yellow;
+                    }
+                }
+        }
+    }
+
+main{
+    grid-area: main;
+        .banner{
+            background-image: url(../img/banner-home_banner-home.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+                h1{
+                    font-family: nyght;
+                    color: nth($paleta, 3);
+                    text-align: center;
+                    font-size: 60px;
+                    padding-top: 120px;
+                }
+                h5{
+                    font-family: roboto mono;
+                    font-size: small;
+                    letter-spacing: 10px;
+                    color: nth($paleta, 3);
+                }
+
+                .dg{
+                    padding-top: 300px;
+                    padding-left: 150px;
+                }
+
+                .ilus{
+                    margin-left: 1500px;
+                    color: nth($paleta, 1);
+                }
+
+                .nombre{
+                    color: nth($paleta, 3);
+                    font-family: roboto mono;
+                    letter-spacing: 10px;
+                    font-weight: bolder;
+                    font-size: 20px;
+                    padding-top: 200px;
+                    text-align: center;
+                    color: nth($paleta, 3);
+                }
+
+        }
+
+        .info{
+
+            font-family: montserrat;
+            text-align: center;
+            color: nth($paleta, 3);
+            justify-content: space-between;
+            display:flex;
+            padding: 60px;
+                .info-texto{
+                    padding: 30px;
+                    font-size: 40px;
+                    text-align: justify;
+                        span{
+                            font-family: nyght;
+                        }
+                }
+                .info-imagen{
+                    padding: 60px;
+                }
+        }
+}
+
+section{
+    grid-area: section;
+    padding-top: 20px;
+        .card-1-2{
+            padding-top: 20px;
+            @include card-home;
+            .card-01{
+                img{
+                    border-radius: 30px;
+                }
+                .card-body{
+                    @include card-body;
+                }
+                .hashtags-1{
+                    @include hashtags;
+                }
+            }
+            .card-02{
+                img{
+                    border-radius: 30px
+                }
+                .card-body{
+                    @include card-body;
+                }
+                .hashtags-2{
+                    @include hashtags;
+                }
+            }
+        }
+        .card-3-4{
+            padding-top: 40px;
+            @include card-home;
+            .card-03{
+                img{
+                    border-radius: 30px;
+                }
+                .card-body{
+                    @include card-body;
+                }
+                .hashtags-3{
+                    @include hashtags;
+                }
+            }
+            .card-04{
+                img{
+                    border-radius: 30px;
+                }
+                .card-body{
+                    @include card-body;
+                }
+                .hashtags-4{
+                    @include hashtags;
+                }
+            }
+        }
+}
+
+footer{
+    grid-area: footer;
+    background-color: nth($paleta, 3);
+    
+        p{
+            color: nth($paleta, 6);
+            font-family: roboto mono;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .redes{
+            display: flex;
+            justify-content: center;
+                img{
+                    height: 50px;
+                }
+        }
+}
+
+/* mobile */
+@media (max-width: 768px){
+    .contenedor-home{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    main{
+        .banner{
+            h1{
+                font-size: 40px;
+                padding-top: 40px;
+            }
+            h5{
+                display: none;
+                font-size: smaller;
+            }
+        }
+        .info{
+            flex-direction: column;
+            padding: 20px;
+            .info-texto{
+                font-size: 20px;
+                padding: 10px;
+            }
+            .info-imagen{
+                padding: 0px;
+            }
+        }
+    }
+
+    section{
+        .card-1-2, .card-3-4{
+            flex-direction: column;
+            .card-01, .card-02, .card-03, .card-04{
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    footer{
+        .redes{
+            flex-direction:row;
+        }
+    }
+}
+
+/* tablet */
+@media (max-width: 1024px){
+    .contenedor-home{
+        grid-template-columns: 1fr;
+        grid-template-rows: 90px auto auto auto;
+        grid-template-areas: 
+            "header"
+            "main"
+            "section"
+            "footer";
+    }
+    main{
+        .banner{
+            h1{
+                font-size: 40px;
+                padding-top: 60px;
+            }
+        }
+        .info{
+            flex-direction: column;
+            padding: 30px;
+        }
+    }
+    section{
+        .card-1-2, .card-3-4{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

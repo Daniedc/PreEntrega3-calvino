@@ -1,0 +1,121 @@
+@import "../utilidades/listas";
+@import "../utilidades/mixin";
+@import "../utilidades/variables";
+
+
+.contenedor-mision{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1 fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "section section section"
+        "footer footer footer";
+}
+
+header{
+  grid-area: header;
+      .custom-navbar{
+          background-color: nth($paleta, 3);
+              .container-fluid{
+                  padding: 20px;
+                  .navbar-brand{
+                      img{
+                          height: 50px;
+                      }
+                  }
+              }
+              .nav-link{
+                  color: nth($paleta, 1);
+
+                  &:hover{
+                      color: $color-duranta-yellow;
+                  }
+              }
+      }
+  }
+
+main{
+    grid-area: main;
+      .tarjetas-mision{
+        justify-content: center;
+        display: flex;
+        padding: 80px;
+        gap: 40px;
+          .tarjeta-mision{
+            @include tarjeta-mision-superposicion
+          }
+          .texto-mision{
+            @include tarjeta-rectangulo-celeste
+          }
+          .forma-estrella{
+            @include estrellita-violeta-fondo
+          }
+          .tarjeta-vision{
+            @include tarjeta-mision-superposicion
+          }
+          .texto-vision{
+            @include tarjeta-rectangulo-celeste
+          }
+          .forma-estrella-2{
+            @include estrellita-violeta-fondo
+          }
+          .tarjeta-creatividad{
+            @include tarjeta-mision-superposicion
+          }
+          .texto-creatividad{
+            @include tarjeta-rectangulo-celeste
+          }
+          .forma-estrella-3{
+            @include estrellita-violeta-fondo
+          }
+      }
+}
+
+section{
+    grid-area: section;
+      .herramientas-trabajo{
+        display: flex;
+        justify-content: center;
+          img{
+            height: 100px;
+            margin-top: 20px;
+          }
+      }
+}
+
+footer{
+    grid-area: footer;
+    background-color: nth($paleta, 3);
+    
+    p{
+        color: nth($paleta, 6);
+        font-family: roboto mono;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .redes{
+        display: flex;
+        justify-content: center;
+            img{
+                height: 50px;
+            }
+    }
+}
+
+/* mobile */
+@media (max-width: 768px){
+    .contenedor-mision{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+    }
+
+    main{
+      .tarjetas-mision{
+        flex-direction: column;
+        padding: 30px;
+      }
+    }
+
+}

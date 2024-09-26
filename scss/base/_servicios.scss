@@ -1,0 +1,303 @@
+@import "../utilidades/listas";
+@import "../utilidades/mixin";
+@import "../utilidades/variables";
+
+.contenedor-servicios{
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "section section section"
+        "footer footer footer";
+}
+
+header{
+    grid-area: header;
+        .custom-navbar{
+            background-color: nth($paleta, 3);
+                .container-fluid{
+                    padding: 20px;
+                    .navbar-brand{
+                        img{
+                            height: 50px;
+                        }
+                    }
+                }
+                .nav-link{
+                    color: nth($paleta, 1);
+
+                    &:hover{
+                        color: $color-duranta-yellow;
+                    }
+                }
+        }
+    }
+
+    main{
+        grid-area: main;
+        .banner-servicios{
+            height: 400px;
+            display: flex;
+            color: nth($paleta, 3);
+            justify-content: space-between;
+                .texto-banner-servicios{
+                    padding-left: 200px;
+                    padding-top: 100px;
+                    h1{
+                        font-family: nyght;
+                        font-size: 80px;
+                    }
+                    .nyght-style{
+                        margin-top: -20px;
+                    }
+                    h5{
+                        font-family: montserrat;
+                        font-weight: 600;
+                        letter-spacing: 10px;
+                        color: nth($paleta, 4);
+                    }
+                }
+                .imagen-banner-servicios{
+                    img{
+                        height: 100%;
+                        width: 1000px;
+                    }
+                }
+        }
+        .cards-servicios{
+            display: flex;
+            height: 200px;
+                .card-branding{
+                    @include cards-servicios-colores;
+                        .modal-content{
+                            background-color: nth($paleta, 5);
+                                .modal-header{
+                                    color: nth($paleta, 3);
+                                    font-family: roboto mono;
+                                }
+                                .modal-body{
+                                    ul{
+                                        list-style-type: none;
+                                        text-align: left;
+                                        font-family: montserrat;
+                                        color: nth($paleta, 3);
+                                    }
+                                }
+                        }
+                    
+                }
+                .card-ilustracion{
+                    @include crads-servicios-colores-2;
+                }
+                .card-redes{
+                    @include cards-servicios-colores;
+                }
+                .card-editorial{
+                    @include crads-servicios-colores-2;
+                }
+        }
+    }
+
+   .section-servicios{
+        grid-area: section;
+        background-color: $color-crema;
+            .preguntas-frecuentes{
+                display: flex;
+                margin: 80px;
+                justify-content: space-between;
+                    .preguntas-titulo{
+                        color: nth($paleta, 3);
+                        font-family: roboto mono;
+                            h3{
+                                font-size: 30px;
+                                padding-left: 90px;
+                                margin-top: 150px;
+                            }
+                    }
+                    .preguntas-drop{
+                        font-family: montserrat;
+                        color: nth($paleta, 3);
+                        padding-right: 10px;
+                        margin-right: 80px;
+                            details{
+                                width: 800px;
+                                background-color: $color-crema;
+                                padding: 20px;
+                                margin-top: 20px;
+                                border-radius: 30px;
+                                box-shadow: 2px 2px 15px $color-nordic;
+                                    
+                                    summary{
+                                        font-family: roboto mono;
+                                    }
+                            }
+
+                            details:hover{
+                                background-color: $color-duranta-yellow;
+                            }
+                    }
+            }
+   }
+
+    footer{
+        grid-area: footer;
+        background-color: nth($paleta, 3);
+    
+        p{
+        color: nth($paleta, 6);
+        font-family: roboto mono;
+        text-align: center;
+        padding-top: 20px;
+        }
+        .redes{
+        display: flex;
+        justify-content: center;
+            img{
+                height: 50px;
+            }
+        }
+    }
+
+    /* mobile */
+    @media (max-width: 768px){
+        .contenedor-servicios{
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+                main{
+                    .banner-servicios{
+                        height: fit-content;
+                        justify-content: auto;
+                        flex-direction: column;
+                            .texto-banner-servicios{
+                                text-align: justify;
+                                padding: 20px;
+                                    h1{
+                                        font-size: 50px;
+                                    }
+                                    h5{
+                                        font-size: small;
+                                    }
+                            }
+                            .imagen-banner-servicios{
+                                img{
+                                    display: none;
+                                }
+                            }
+                    }
+                    .cards-servicios{
+                        flex-direction: column;
+                        height: fit-content;
+                            .card-branding{
+                                width: 100%;
+                            }
+                            .card-ilustracion{
+                                width: 100%;
+                            }
+                            .card-redes{
+                                width: 100%;
+                            }
+                            .card-editorial{
+                                width: 100%;
+                            }
+                    }
+                }
+                .section-servicios{
+                    .preguntas-frecuentes{
+                        flex-direction: column;
+                        margin: 20px;
+                            .preguntas-titulo{
+                                h3{
+                                    justify-content: center;
+                                    padding: 0;
+                                    margin: auto;
+                                }
+                            }
+                            .preguntas-drop{
+                                details{
+                                    width: 350px;
+                                    justify-content: center;
+                                }
+                            }
+                    }
+                }
+        }
+    }
+
+    /* tablet */
+    @media screen and (min-width: 768px) and (max-width: 1024px){
+       .contenedor-servicios{
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+                main{
+                    .banner-servicios{
+                        height: fit-content;
+                        justify-content: auto;
+                        flex-direction: column;
+                            .texto-banner-servicios{
+                                text-align: justify;
+                                padding: 50px;
+                                    h1{
+                                        font-size: 100px;
+                                    }
+                                    h5{
+                                        font-size: medium;
+                                    }
+                            }
+                            .imagen-banner-servicios{
+                                img{
+                                    display: none;
+                                }
+                            }
+                    }
+                    .cards-servicios{
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        grid-template-rows: auto auto;
+                        height: fit-content;
+                            .card-branding, .card-ilustracion, .card-redes, .card-editorial{
+                                width: 100%;
+                                height: 400px;
+                                    h4{
+                                        font-size: 65px;
+                                        text-align: center;
+                                    }
+                                    h5{
+                                        font-size: 40px;
+                                        text-align: center;
+                                    }
+                                    .cta-servicios{
+                                        width: 500px;
+                                        height: 70px;
+                                            .btn{
+                                                font-size: 30px;
+                                            }
+                                    }
+                            }
+                            
+                    }
+                }
+                .section-servicios{
+                    .preguntas-frecuentes{
+                        flex-direction: column;
+                        margin: 40px;
+                        padding: 40px;
+                            .preguntas-titulo{
+                                h3{
+                                    margin: 0;
+                                    text-align: center;
+                                    font-size: 40px;
+                                    padding: 0;
+                                }
+                            }
+                            .preguntas-drop{
+                                align-items: center;
+                                details{
+                                    width: 700px;
+                                }
+                            }
+                    }
+                }
+       } 
+    }
